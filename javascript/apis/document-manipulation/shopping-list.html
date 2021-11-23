@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping list example</title>
     <style>
-      li {
-        margin-bottom: 10px;
-      }
+        li {
+            margin-bottom: 10px;
+        }
 
-      li button {
-        font-size: 8px;
-        margin-left: 20px;
-        color: #666;
-      }
+        li button {
+            font-size: 8px;
+            margin-left: 20px;
+            color: #666;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <h1>My shopping list</h1>
 
     <div>
-      <label for="item">Enter a new item:</label>
-      <input type="text" name="item" id="item">
-      <button>Add item</button>
+        <label for="item">Enter a new item:</label>
+        <input type="text" name="item" id="item">
+        <button>Add item</button>
     </div>
 
     <ul>
@@ -31,7 +33,26 @@
     </ul>
 
     <script>
-
+        const list = document.querySelector('ul');
+        const input = document.querySelector('input');
+        const btn = document.querySelector('button');
+        btn.onclick = function() {
+            const val = input.value;
+            input.value = '';
+            const li = document.createElement('li');
+            const spn = document.createElement('span');
+            const butn = document.createElement('button');
+            spn.textContent = val;
+            butn.textContent = 'Delete';
+            li.appendChild(spn);
+            li.appendChild(butn);
+            list.appendChild(li);
+            butn.onclick = function(liDelete) {
+                list.removeChild(li);
+            }
+            input.focus();
+        }
     </script>
-  </body>
+</body>
+
 </html>
