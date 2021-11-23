@@ -5,6 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple DOM example</title>
+    <style>
+        .highlight {
+            color: white;
+            background-color: black;
+            padding: 10px;
+            width: 250px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,6 +33,8 @@
         const text = document.createTextNode(' — the premier source for web development knowledge.');
         const linkPara = document.querySelector('p');
         linkPara.appendChild(text);
+        sect.appendChild(linkPara);
+        para.setAttribute('class', 'highlight');
     </script>
 </body>
 
